@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Comestibles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+        section {
+            margin: 50px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+        }
+        .producto {
+            display: inline-block;
+            margin: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            color: black;
+            border-radius: 10px;
+        }
+        .producto img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        footer {
+            margin-top: 50px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+        }
+        #inicio {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 100px;
+            margin-top: 100px;
+            border-radius: 10px;
+        }
+        #inicio h1 {
+            font-size: 2.5em;
+        }
+        #inicio button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            background-color: rgba(0, 255, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 20px;
+        }
+        #inicio button:hover {
+            background-color: rgba(0, 255, 0, 1);
+        }
+        #contenido-tienda {
+            display: none;
+        }
+        .eliminar-btn {
+            background-color: red;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .eliminar-btn:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="inicio">
+        <h1>Bienvenido a nuestra Tienda de Comestibles</h1>
+        <button onclick="irAComprar()">Ir a Comprar</button>
+        <button onclick="salir()">Salir</button>
+    </div>
+
+    <div id="contenido-tienda">
+        <header>
+            <h1>Tienda de Comestibles</h1>
+            <nav>
+                <ul>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#carrito">Carrito</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#promociones">Promociones</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="productos">
+            <h2>Catálogo de Productos</h2>
+            <div class="producto">
+                <img src="img/Carne de Res.jpg" alt="Carne">
+                <h3>Carne de Res</h3>
+                <p>Precio: $20.00</p>
+                <button onclick="agregarAlCarrito('Carne de Res', 20.00)">Añadir al carrito</button>
+            </div>
+            <div class="producto">
+                <img src="img/Pollo Fresco.jpg" alt="Pollo">
+                <h3>Pollo Fresco</h3>
+                <p>Precio: $10.00</p>
+                <button onclick="agregarAlCarrito('Pollo Fresco', 10.00)">Añadir al carrito</button>
+            </div>
+            <div class="producto">
+                <img src="img/Productos de Limpieza.jpg" alt="Productos de Limpieza">
+                <h3>Productos de Limpieza</h3>
+                <p>Precio: $8.00</p>
+                <button onclick="agregarAlCarrito('Productos de Limpieza', 8.00)">Añadir al carrito</button>
+            </div>
+            <div class="producto">
+                <img src="img/Arroz Integral.jpg" alt="Arroz">
+                <h3>Arroz Integral</h3>
+                <p>Precio: $5.00</p>
+                <button onclick="agregarAlCarrito('Arroz Integral', 5.00)">Añadir al carrito</button>
+            </div>
+            <div class="producto">
+                <img src="img/Frutas Frescas.jpg" alt="Frutas">
+                <h3>Frutas Frescas</h3>
+                <p>Precio: $6.00</p>
+                <button onclick="agregarAlCarrito('Frutas Frescas', 6.00)">Añadir al carrito</button>
+            </div>
+            <div class="producto">
+                <img src="img/Pan Artesanal.jpg" alt="Pan">
+                <h3>Pan Artesanal</h3>
+                <p>Precio: $3.00</p>
+                <button onclick="agregarAlCarrito('Pan Artesanal', 3.00)">Añadir al carrito</button>
+            </div>
+            <div class="producto">
+                <img src="img/Leche Entera.jpg" alt="Leche">
+                <h3>Leche Entera</h3>
+                <p>Precio: $2.50</p>
+                <button onclick="agregarAlCarrito('Leche Entera', 2.50)">Añadir al carrito</button>
+            </div>
+            <div class="producto">
+                <img src="img/Aceite de Oliva.jpg" alt="Aceite de Oliva">
+                <h3>Aceite de Oliva</h3>
+                <p>Precio: $7.00</p>
+                <button onclick="agregarAlCarrito('Aceite de Oliva', 7.00)">Añadir al carrito</button>
+            </div>
+            <div class="producto">
+                <img src="img/Jugos Naturales.jpg" alt="Jugos Naturales">
+                <h3>Jugos Naturales</h3>
+                <p>Precio: $4.00</p>
+                <button onclick="agregarAlCarrito('Jugos Naturales', 4.00)">Añadir al carrito</button>
+            </div>
+            <div class="producto">
+                <img src="img/Pasta Italiana.jpg" alt="Pasta Italiana">
+                <h3>Pasta Italiana</h3>
+                <p>Precio: $3.50</p>
+                <button onclick="agregarAlCarrito('Pasta Italiana', 3.50)">Añadir al carrito</button>
+            </div>
+            <div class="producto">
+                <img src="img/Salsas Gourmet.jpg" alt="Salsas">
+                <h3>Salsas Gourmet</h3>
+                <p>Precio: $5.50</p>
+                <button onclick="agregarAlCarrito('Salsas Gourmet', 5.50)">Añadir al carrito</button>
+            </div>
+        </section>
+
+        <section id="carrito">
+            <h2>Carrito de Compras</h2>
+            <div id="contenido-carrito">Tu carrito está vacío.</div>
+            <button onclick="irAPagar()">Ir a Pagar</button>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Tienda de Comestibles</p>
+        </footer>
+    </div>
+
+    <script>
+        // Función para mostrar la tienda después de hacer clic en "Ir a Comprar"
+        function irAComprar() {
+            document.getElementById("inicio").style.display = "none";
+            document.getElementById("contenido-tienda").style.display = "block";
+        }
+
+        function salir() {
+            alert("Gracias por visitar nuestra tienda. ¡Hasta pronto!");
+        }
+
+        // Funciones para manejar el carrito
+        let carrito = [];
+        function agregarAlCarrito(producto, precio) {
+            carrito.push({ producto, precio });
+            aplicarPromociones(producto);
+            actualizarCarrito();
+        }
+
+        function aplicarPromociones(producto) {
+            // Verifica si el producto agregado tiene alguna promoción asociada
+            if (producto === "Carne de Res") {
+                carrito.push({ producto: "Descuento en Carnes", precio: -4 }); // 20% de descuento
+            } else if (producto === "Pollo Fresco") {
+                carrito.push({ producto: "Combo Ahorro", precio: 0 }); // Producto gratis
+            } else if (producto === "Arroz Integral" && carrito.some(item => item.producto === "Aceite de Oliva")) {
+                carrito.push({ producto: "Descuento en Arroz y Aceite", precio: -1.50 }); // Descuento por combo
+            }
+        }
+
+        function actualizarCarrito() {
+            const carritoElemento = document.getElementById("contenido-carrito");
+            carritoElemento.innerHTML = "";
+            let total = 0;
+            carrito.forEach(item => {
+                let itemElemento = document.createElement("div");
+                itemElemento.textContent = `${item.producto} - $${item.precio.toFixed(2)}`;
+                let eliminarBtn = document.createElement("button");
+                eliminarBtn.textContent = "Eliminar";
+                eliminarBtn.classList.add("eliminar-btn");
+                eliminarBtn.onclick = () => eliminarDelCarrito(item.producto); // Función para eliminar
+                itemElemento.appendChild(eliminarBtn);
+                carritoElemento.appendChild(itemElemento);
+                total += item.precio;
+            });
+            let totalElemento = document.createElement("p");
+            totalElemento.textContent = `Total: $${total.toFixed(2)}`;
+            carritoElemento.appendChild(totalElemento);
+        }
+
+        // Función para eliminar un producto del carrito
+        function eliminarDelCarrito(producto) {
+            carrito = carrito.filter(item => item.producto !== producto);
+            actualizarCarrito();
+        }
+
+        // Función de pago
+        function irAPagar() {
+            let total = carrito.reduce((acc, item) => acc + item.precio, 0);
+            if (total > 0) {
+                alert("Gracias por su compra. ¡Que tenga un buen día!");
+                carrito = []; // Limpiar carrito después de pago
+                actualizarCarrito(); // Actualizar la vista del carrito
+            } else {
+                alert("Su carrito está vacío. No se puede proceder con el pago.");
+            }
+        }
+    </script>
+
+</body>
+</html>
